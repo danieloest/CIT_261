@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <title>Doing Stuff with Web Things</title>
+  <script>
+      function checkNumber() {
+        var numberAsText = document.getElementById("number_input").value;
+        var numberAsInt = parseInt(numberAsText);
+        if (numberAsText != "" && !isNaN(numberAsInt)) {
+            var remainder = Math.abs(numberAsText % 2);
+            if(remainder == 0){
+                document.getElementById("result_display").innerHTML = numberAsText + " is even.";
+            }
+            else {
+                document.getElementById("result_display").innerHTML = numberAsText + " is odd.";
+            }
+        }
+        else {
+            document.getElementById("result_display").innerHTML = "Select a number.";
+        }
+      }
+  </script>
+
+  <style>
+      body {
+          background-color: bisque;
+      }
+      input {
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px #666666 inset; height: 25px;
+        width: 200px;
+        text-indent: 5px;
+      }
+  </style>
+</head>
+
+<body>
+    <h1>Even or Odd???</h1>
+    Enter a Number: <input id="number_input"></input>
+    <button onclick="checkNumber()">Check It!</button> <section id="result_display"></section>
+</body>
+</html>

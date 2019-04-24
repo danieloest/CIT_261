@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>Doing Stuff with Web Things</title>
+  <script>
+      function showContratulations(buttonClicked) {
+        document.getElementById("result_display").innerHTML = "Congrats!<p>The page has been updated</p>";
+        buttonClicked.innerHTML = "Click me again!";
+      }
+  </script>
+
+  <style>
+    body {
+      background-color: aqua;
+    }
+    #result_display {
+      background-color: bisque;
+      width: 75%;
+      height: 300px;
+      position: relative;
+      top: 40px;
+      left: 60px;
+      padding: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+    <button onclick="showContratulations(this)">Click me!</button>
+    <section id="result_display"></section>
+</body>
+</html>
