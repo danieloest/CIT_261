@@ -4,7 +4,11 @@ function listHikes() {
     listElement.innerHTML = '';
 
     hikeList.forEach( hike => {
-        listElement.appendChild(renderHike(hike));
+        const newHike = renderHike(hike);
+        newHike.addEventListener('touchend', () => {
+            console.log(event);
+        });
+        listElement.appendChild(newHike);
     });
 }
 
@@ -39,7 +43,7 @@ function renderHike(hike) {
     </div>
     <div>
       <h3>Difficulty</h3>
-      <p>${ hike.distance }</p>
+      <p>${ hike.difficulty }</p>
     </div>
     <div>
       <h3>Description</h3>
@@ -56,4 +60,6 @@ function renderHike(hike) {
 return item;
 }
 
-listHikes();
+window.addEventListener('load', () => {
+    listHikes();
+})
