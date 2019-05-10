@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        const calculator = {
+            add : function(add1, add2) {
+                return add1 + add2;
+            },
+            subtract : function(sub1, sub2) {
+                return sub1 - sub2;
+            },
+            divide : function(div1, div2) {
+                return div1 / div2;
+            },
+            multiply : function(mult1, mult2) {
+                return mult1 * mult2;
+            }
+        };
+
+        function readInput() {
+            var input = document.getElementById("textInput").value;
+            document.getElementById("displayText").innerHTML = input;
+        }
+
+        function readNumber() {
+            var numberInput = parseInt(document.getElementById("numberInput").value);
+            getSum(numberInput);
+        }
+        function getSum(numberInput) {
+            if (!isNaN(numberInput)) {
+                var  sum = 0;
+                for (var i = 1; i <= numberInput; i++) {
+                    sum += i;
+                }
+                document.getElementById("displayNumber").innerHTML = sum;
+            } else {
+                document.getElementById("displayNumber").innerHTML = "Merry Christmas you filthy animal!";
+            }
+        }
+
+        function getSumMore() {
+            var add1 = parseInt(document.getElementById("addInput1").value);
+            var add2 = parseInt(document.getElementById("addInput2").value);
+            var sum = addNumbers(add1, add2);
+            document.getElementById("displayAddition").innerHTML = sum;
+        }
+        function addNumbers(add1, add2) {
+            return add1 + add2;
+        }
+
+        function calculate() {
+            var num1 = parseInt(document.getElementById("firstNum").value);
+            var num2 = parseInt(document.getElementById("secondNum").value);
+            var total = 0;
+            var value = document.getElementById("operand").value;
+            switch (value) {
+                case "+": 
+                    total = calculator.add(num1, num2);
+                    break;
+                case "-":
+                    total = calculator.subtract(num1, num2);
+                    break;
+                case "/":
+                    total = calculator.divide(num1, num2);
+                    break;
+                case "*":
+                    total = calculator.multiply(num1, num2);
+                    break;
+            }
+            document.getElementById("total").innerHTML = total;
+        }
+    </script>
+</head>
+<body>
+    <h1>Text:</h1><input type="text" id="textInput">
+    <button onclick="readInput()">Display Text</button>
+    <div id="displayText"></div><br>
+    <hr>
+    <h1>Number:</h1>
+    <input type="text" id="numberInput">
+    <button onclick="readNumber()">Get Sum</button>
+    <div id="displayNumber"></div><br>
+    <hr>
+    <h1>Add</h1><input type="number" id="addInput1"> + <input type="number" id="addInput2"> =
+    <button onclick="getSumMore()">Get Sum More</button>
+    <div id="displayAddition"></div><br>
+    <hr>
+    <h1>Calculator</h1>
+    <input type="number" id="firstNum">
+    <select id="operand">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="/">/</option>
+        <option value="*">*</option>
+    </select>
+    <input type="number" id="secondNum">
+    <button onclick="calculate()">Calculate</button>
+    <div id="total"></div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mountains</h1>
+<div id="mountains"></div>
+<script>
+  const MOUNTAINS = [
+    {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+    {name: "Everest", height: 8848, place: "Nepal"},
+    {name: "Mount Fuji", height: 3776, place: "Japan"},
+    {name: "Vaalserberg", height: 323, place: "Netherlands"},
+    {name: "Denali", height: 6168, place: "United States"},
+    {name: "Popocatepetl", height: 5465, place: "Mexico"},
+    {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+  ];
+
+  var div = document.getElementById("mountains");
+  var table = document.createElement("table");
+  div.appendChild(table);
+
+  var keys = Object.keys(MOUNTAINS[0]);
+  var headerRow = document.createElement("tr");
+
+  for (var i = 0; i < keys.length; i++) {
+	var headerCell = document.createElement("th");
+    	headerCell.innerText = keys[i].charAt(0).toUpperCase() + keys[i].slice(1);
+    headerRow.appendChild(headerCell);
+  }
+  table.appendChild(headerRow);
+  for (var j = 0; j < MOUNTAINS.length; j++) {
+    var row = document.createElement("tr");
+    var cell = document.createElement("td");
+      	cell.innerText = MOUNTAINS[j].name;
+      	row.appendChild(cell);
+    var cell = document.createElement("td");
+    	cell.align =  "right";
+      	cell.innerText = MOUNTAINS[j].height;
+      	row.appendChild(cell);
+    // Create Place
+    var cell = document.createElement("td");
+      	cell.innerText = MOUNTAINS[j].place;
+      	row.appendChild(cell);
+    
+    // Add Row to Table
+    table.appendChild(row);
+  }
+</script>
+
+</body>
+</html>
