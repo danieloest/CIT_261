@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <p>🎈</p>
+
+    <script>
+        var element = document.querySelector("p");
+        var body = document.querySelector("body");
+        var size = 30;
+        function setSize(newSize) {
+            size = newSize;
+            element.style.fontSize = size + "px";
+        }
+        setSize(size);
+
+        function handleInput(input) {
+            if (event.key == "ArrowUp") {
+                if (size > 70) {
+                    element.textContent = "💥";
+                    document.body.removeEventListener("keydown", handleInput);
+
+                    setTimeout(function() {
+                        element.innerHTML = "💥😭";
+
+                        setTimeout(function() {
+                            element = document.createElement("p");
+                            element.textContent = "🎈";
+                            body.appendChild(element);
+                            document.body.addEventListener("keydown", handleInput);
+                            size = 30;
+                        }, 500);
+                    }, 1000);
+                } else {
+                    setSize(size * 1.1);
+                    event.preventDefault();
+                    }
+            } else if (event.key == "ArrowDown") {
+                setSize(size * 0.9);
+                event.preventDefault();
+            }
+        }
+        
+        document.body.addEventListener("keydown", handleInput);
+
+    </script>
+</body>
+</html>
