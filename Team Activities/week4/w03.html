@@ -10,63 +10,120 @@
    <title>Document</title>
 </head>
 <body>
-      <table id="board" >
-         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-         </tr>
-          <td></td>
-          <td></td>
-          <td></td>
+   <h1 id="winnerDisplay"></h1>
+   <hr>
+   <table id="board">
+      <tr>
+         <td value=1></td>
+         <td value=2></td>
+         <td value=3></td>
+      </tr>
+         <td value=4></td>
+         <td value=5></td>
+         <td value=6></td>
       </tr>
       <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+         <td value=7></td>
+         <td value=8></td>
+         <td value=9></td>
       </tr>
    </table>
-<button type="button" name="button" value="reset" ontouchend="reset()">Rage Quit</button>
+   <br>
+   <button class="block" id="resetButton">Rage Quit</button>
 
    <script>
-      var odd = true;
+      const board = document.getElementById('board');
+      const resetButton = document.getElementById('resetButton');
+      var odd = true; // Odd player is X, even is O
       var turns = 0;
-      // var board = {
-      //    [
-      //       "one": ["one": "", "two:", "three": ],
-      //       "two": ["one": "", "two:", "three": ],
-      //       "three": ["one": "", "two:", "three": ]
+      var isWinner = false;
+      var winner = '';
 
-      //    ]
-      // };
+      var game = [ '', '', '', '', '', '', '', '', ''];
+
+
+      function checkWinner() {
+         if (game[0] === game[3] && game[3] === game[6] && game[0] !== '') {
+            console.log("Winner!");
+            winner = game[0];
+            isWinner = true;
+         }
+         if (game[1] === game[4] && game[4] === game[7] && game[1] !== '') {
+            console.log("Winner!");
+            winner = game[1];
+            isWinner = true;
+         }
+         if (game[2] === game[5] && game[5] === game[8] && game[2] !== '') {
+            console.log("Winner!");
+            winner = game[2];
+            isWinner = true;
+         }
+         if (game[0] === game[1] && game[1] === game[2] && game[0] !== '') {
+            console.log("Winner!");
+            winner = game[0];
+            isWinner = true;
+         }
+         if (game[3] === game[4] && game[4] === game[5] && game[3] !== '') {
+            console.log("Winner!");
+            winner = game[3];
+            isWinner = true;
+         }
+         if (game[6] === game[7] && game[7] === game[8] && game[6] !== '') {
+            console.log("Winner!");
+            winner = game[6];
+            isWinner = true;
+         }
+         if (game[0] === game[4] && game[4] === game[8] && game[0] !== '') {
+            console.log("Winner!");
+            winner = game[0];
+            isWinner = true;
+         }
+         if (game[2] === game[4] && game[4] === game[6] && game[2] !== '') {
+            console.log("Winner!");
+            winner = game[2];
+            isWinner = true;
+         }
+      }
 
       function reset() {
          const cells = document.querySelectorAll('td');
          for (var i = 0; i < cells.length; i++) {
                cells[i].innerHTML = '';
          }
+         game = [ '', '', '', '', '', '', '', '', ''];
          turns = 0;
+         isWinner = false;
+         document.getElementById('winnerDisplay').innerHTML = '';
       }
 
-      document.getElementById('board').addEventListener('touchend', function(event){
-         console.dir(event);
-         if (turns < 10 && event.target.innerHTML == "")
+      function playerTurn(event) {
+         if (turns < 10 && event.target.innerHTML == "" && !isWinner)
          {
-            if (odd){
+            var index = event.target.getAttribute('value') - 1;
+            if (odd) {
                event.target.innerHTML = 'X';
+               game[index] = 'X';
                odd = false;
-               console.log(odd);
-               console.log(event.innerHTML);
-
             }
             else{
                event.target.innerHTML = 'O';
+               game[index] = 'O';
                odd = true;
             }
+            checkWinner();
             turns++;
+            console.log(game);
+         } if (turns === 9 && !isWinner) {
+            isWinner = true;
+            winner = 'No One ☹️';
          }
-      });
+         if (isWinner) {
+            document.getElementById('winnerDisplay').innerHTML = "The winner is: " + winner;
+         }
+      }
 
+      resetButton.addEventListener('touchend', reset);
+      board.addEventListener('touchend', playerTurn);
 
    </script>
 </body>
