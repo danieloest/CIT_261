@@ -4,9 +4,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Midterm - Home</title>
+    <title>Midterm - Yahtzee</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="main.js"></script>
 </head>
 <body>
-    
+    <div class="navbar">
+        <a href="#home" class="active">Game</a>
+        <a href="./rules.html">Rules</a>
+        <a href="#contact">Full Scorecard</a>
+    </div>
+    <!------------------->
+    <!------------------->
+    <!-- UPPER SECTION -->
+    <!------------------->
+    <!------------------->
+    <h1><i>Yahtzee</i></h1>
+    <table style="width:100%">
+    <tr id="headingElements">
+        <th class="instructions">UPPER SECTION</th>
+        <th class="instructions">HOW TO SCORE</th> 
+        <th>Player 1</th>
+    </tr>
+    <tr>
+        <td>Aces <br><img src="images/1.png"> = 1</td>
+        <td>Count and Add Only Aces</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Twos <br><img src="images/2.png"> = 2</td> 
+        <td>Count and Add Only Twos</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Threes <br><img src="images/3.png"> = 3</td>
+        <td>Count and Add Only Threes</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Fours <br><img src="images/4.png"> = 4</td> 
+        <td>Count and Add Only Fours</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Fives <br><img src="images/5.png"> = 5</td>
+        <td>Count and Add Only Fives</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Sixes <br><img src="images/6.png"> = 6</td> 
+        <td>Count and Add Only Sixes</td>
+        <td></td>
+    </tr>
+    <!------------------->
+    <!------------------->
+    <!-- UPPER TOTALS -->
+    <!------------------->
+    <!------------------->
+    <tr>
+        <td>TOTAL SCORE</td>
+        <td><img class="arrow" src="images/right.png"></td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td>BONUS: If total score is 63 or over</td>
+        <td>SCORE 35</td>
+        <td>35</td>
+    </tr>
+    <tr>
+        <td>TOTAL: Of Upper Section</td>
+        <td><img class="arrow" src="images/right.png"></td>
+        <td>135</td>
+    </tr>
+    <tr>
+    <!------------------->
+    <!------------------->
+    <!-- LOWER SECTION -->
+    <!------------------->
+    <!------------------->
+        <th>LOWER SECTION</th>
+    </tr>
+    <tr>
+        <td>3 of a kind</td>
+        <td>Add Total Of All Dice</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>4 of a kind</td>
+        <td>Add Total Of All Dice</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Full House</td>
+        <td>SCORE 25</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Sm. Straight: Sequence of 4</td>
+        <td>SCORE 30</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Sm. Straight: Sequence of 5</td>
+        <td>SCORE 40</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>YAHTZEE: 5 of a kind</td> 
+        <td>SCORE 50</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Chance</td>
+        <td>Score Total Of All 5 Dice</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>YAHTZEE BONUS</td> 
+        <td>+1 FOR EACH BONUS</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>YAHTZEE BONUS SCORE</td>
+        <td>SCORE 100 PER YAHTZEE</td>
+        <td>100</td>
+    </tr>
+    <!------------------->
+    <!------------------->
+    <!-- LOWER TOTALS --->
+    <!------------------->
+    <!------------------->
+    <tr>
+        <td>TOTAL: Of Lower Section</td>
+        <td><img class="arrow" src="images/right.png"></td>
+        <td>200</td>
+    </tr>
+    <tr>
+        <td>TOTAL: Of Upper Section</td>
+        <td><img class="arrow" src="images/right.png"></td>
+        <td>135</td>
+    </tr>
+    <tr>
+        <td>GRAND TOTAL</td>
+        <td><img class="arrow" src="images/right.png"></td>
+        <td>335</td>
+    </tr>
+    </table>
+    <!------------------->
+    <!------------------->
+    <!-- OTHER INPUTS --->
+    <!------------------->
+    <!------------------->
+    <br>
+    <input id="die1" type="hidden" value=1> 
+    <input id="die2" type="hidden" value=2>
+    <input id="die3" type="hidden" value=3>
+    <input id="die4" type="hidden" value=4>
+    <input id="die5" type="hidden" value=5>
+
+    <a id="die1Pic" onclick="test(1)"><img src="images/1.png"></a>
+    <a id="die2Pic" onclick="test(2)"><img src="images/2.png"></a>
+    <a id="die3Pic" onclick="test(3)"><img src="images/3.png"></a>
+    <a id="die4Pic" onclick="test(4)"><img src="images/4.png"></a>
+    <a id="die5Pic" onclick="test(5)"><img src="images/5.png"></a>
 </body>
 </html>
